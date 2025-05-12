@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CAMPUSQUEST - Clubs</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f0f2f5;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+
+        .club-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .club-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-input:focus {
+            border-color: #4f46e5;
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.2);
+        }
+
+        .text-gradient {
+            background: linear-gradient(90deg, #4f46e5, #9333ea);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100 min-h-screen">
+    <!-- Header/Navigation -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <a href="index.html" class="text-2xl font-bold text-gradient">CAMPUSQUEST</a>
+                <nav class="hidden md:flex space-x-6">
+                    <a href="index.html" class="py-2 hover:text-indigo-600">HOME</a>
+                    <a href="clubs.html" class="py-2 text-indigo-600 border-b-2 border-indigo-600">CLUBS</a>
+                    <a href="contact.html" class="py-2 hover:text-indigo-600">CONTACT</a>
+                </nav>
+                <div class="flex items-center space-x-4">
+                    <button id="loginBtn"
+                        class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg">Login</button>
+                    <button class="md:hidden" id="mobileMenuBtn">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobileMenu" class="md:hidden hidden mt-3 pb-3">
+                <a href="index.html" class="block py-2 hover:text-indigo-600">HOME</a>
+                <a href="clubs.html" class="block py-2 text-indigo-600">CLUBS</a>
+                <a href="contact.html" class="block py-2 hover:text-indigo-600">CONTACT</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main content -->
+    <main class="container mx-auto px-4 py-8">
+        <!-- Clubs Header -->
+        <div class="mb-8">
+            <h1 class="text-3xl font-bold mb-6">Campus Clubs</h1>
+        </div>
+
+        <!-- Clubs Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Tech Club -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden" id="techclub">
+                <div class="h-40 bg-gradient-to-r from-blue-500 to-purple-600 relative">
+                    <img src="C:\Users\HP\Desktop\vs prog\CQ0\needs\vistacover.jpg" alt="Tech Club Cover"
+                        class="w-full h-full object-cover opacity-50">
+                    <div class="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black to-transparent">
+                        <h2 class="text-white text-xl font-bold">Vista Club</h2>
+                    </div>
+                </div>
+
+                <div class="p-4">
+                    <p class="text-gray-600 mb-4">A community for artists of all mediums to collaborate, showcase their
+                        work, and develop their creative skills through exhibitions and workshops.</p>
+
+                    <div class="mb-4">
+                        <h3 class="font-semibold text-gray-800 mb-2">Current Events:</h3>
+                        <ul class="space-y-2">
+                            <li class="flex items-center">
+                                <span class="h-2 w-2 bg-green-500 rounded-full mr-2"></span>
+                                <span>Ojas 2025 - April 15-16</span>
+                            </li>
+                            <li class="flex items-center">
+                                <span class="h-2 w-2 bg-green-500 rounded-full mr-2"></span>
+                                <span>AI Workshop Series - Every Tuesday</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-4">
+                        <h3 class="font-semibold text-gray-800 mb-2">Club Leaders:</h3>
+                        <div class="flex flex-col gap-2">
+                            <div class="bg-gray-100 rounded-lg px-3 py-2">
+                                <div class="flex items-center">
+                                    <img src="/api/placeholder/24/24" alt="Member" class="h-6 w-6 rounded-full mr-2">
+                                    <span class="text-sm font-medium">Neelesh Soni (President)</span>
+                                </div>
+                                <div class="ml-8 text-xs text-gray-600">neeleshsoni@university.edu</div>
+                            </div>
+                            <div class="bg-gray-100 rounded-lg px-3 py-2">
+                                <div class="flex items-center">
+                                    <img src="/api/placeholder/24/24" alt="Member" class="h-6 w-6 rounded-full mr-2">
+                                    <span class="text-sm font-medium"></span>Navneet Sharma (Secretary)</span>
+                                </div>
+                                <div class="ml-8 text-xs text-gray-600">navneetsharma@university.edu</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Art Club -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden" id="artclub">
+                <div class="h-40 bg-gradient-to-r from-pink-500 to-orange-500 relative">
+                    <img src="C:\Users\HP\Desktop\vs prog\CQ0\needs\paccover.jpg" alt="Art Club Cover"
+                        class="w-full h-full object-cover opacity-50">
+                    <div class="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black to-transparent">
+                        <h2 class="text-white text-xl font-bold">PAC Club</h2>
+                    </div>
+                </div>
+
+                <div class="p-4">
+                    <p class="text-gray-600 mb-4">The Professional Activity Club, formed in September 2017, is a
+                        student-led club promoting innovation, technical events, networking, and skill development
+                        through engaging activities and experiences.</p>
+
+                    <div class="mb-4">
+                        <h3 class="font-semibold text-gray-800 mb-2">Current Events:</h3>
+                        <ul class="space-y-2">
+                            <li class="flex items-center">
+                                <span class="h-2 w-2 bg-green-500 rounded-full mr-2"></span>
+                                <span>Tech Escape - April 20</span>
+                            </li>
+                            <li class="flex items-center">
+                                <span class="h-2 w-2 bg-green-500 rounded-full mr-2"></span>
+                                <span>Watercolor Workshop - April 25</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-4">
+                        <h3 class="font-semibold text-gray-800 mb-2">Club Leaders:</h3>
+                        <div class="flex flex-col gap-2">
+                            <div class="bg-gray-100 rounded-lg px-3 py-2">
+                                <div class="flex items-center">
+                                    <img src="/api/placeholder/24/24" alt="Member" class="h-6 w-6 rounded-full mr-2">
+                                    <span class="text-sm font-medium">Pritam (President)</span>
+                                </div>
+                                <div class="ml-8 text-xs text-gray-600">pritam@university.edu</div>
+                            </div>
+                            <div class="bg-gray-100 rounded-lg px-3 py-2">
+                                <div class="flex items-center">
+                                    <img src="/api/placeholder/24/24" alt="Member" class="h-6 w-6 rounded-full mr-2">
+                                    <span class="text-sm font-medium">Aniket Chouhan (Vice President)</span>
+                                </div>
+                                <div class="ml-8 text-xs text-gray-600">aniketchouhan@university.edu</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Music Club -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden" id="musicclub">
+                <div class="h-40 bg-gradient-to-r from-indigo-500 to-blue-500 relative">
+                    <img src="C:\Users\HP\Desktop\vs prog\CQ0\needs\astrocover.jpg" alt="Music Club Cover"
+                        class="w-full h-full object-cover opacity-50">
+                    <div class="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black to-transparent">
+                        <h2 class="text-white text-xl font-bold">Astro Club</h2>
+                    </div>
+                </div>
+
+                <div class="p-4">
+                    <p class="text-gray-600 mb-4">For astronomy enthusiasts to explore, observe, and discuss celestial
+                        phenomena. Regular stargazing nights, guest lectures, and astrophotography workshops.</p>
+
+                    <div class="mb-4">
+                        <h3 class="font-semibold text-gray-800 mb-2">Current Events:</h3>
+                        <ul class="space-y-2">
+                            <li class="flex items-center">
+                                <span class="h-2 w-2 bg-green-500 rounded-full mr-2"></span>
+                                <span>Telescope Night - April 22</span>
+                            </li>
+                            <li class="flex items-center">
+                                <span class="h-2 w-2 bg-green-500 rounded-full mr-2"></span>
+                                <span>Night Sky - Every Friday</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-4">
+                        <h3 class="font-semibold text-gray-800 mb-2">Club Leaders:</h3>
+                        <div class="flex flex-col gap-2">
+                            <div class="bg-gray-100 rounded-lg px-3 py-2">
+                                <div class="flex items-center">
+                                    <img src="/api/placeholder/24/24" alt="Member" class="h-6 w-6 rounded-full mr-2">
+                                    <span class="text-sm font-medium">Siddhant Jain (President)</span>
+                                </div>
+                                <div class="ml-8 text-xs text-gray-600">siddhantjain@university.edu</div>
+                            </div>
+                            <div class="bg-gray-100 rounded-lg px-3 py-2">
+                                <div class="flex items-center">
+                                    <img src="/api/placeholder/24/24" alt="Member" class="h-6 w-6 rounded-full mr-2">
+                                    <span class="text-sm font-medium">Abhisekh Chouhan (Secretary)</span>
+                                </div>
+                                <div class="ml-8 text-xs text-gray-600">abhisekhchouhan@university.edu</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- More clubs would go here -->
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-6 mt-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-lg font-bold mb-4">CAMPUSQUEST</h3>
+                    <p class="text-gray-300">Your one-stop platform for all campus events and club activities.</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-300 hover:text-white">Home</a></li>
+                        <li><a href="clubs.html" class="text-gray-300 hover:text-white">Clubs</a></li>
+                        <li><a href="contact.html" class="text-gray-300 hover:text-white">Contact</a></li>
+                        <li><a href="privacy.html" class="text-gray-300 hover:text-white">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Connect With Us</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-300 hover:text-white text-2xl"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-300 hover:text-white text-2xl"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-gray-300 hover:text-white text-2xl"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-6 text-center text-gray-400">
+                <p>&copy; 2025 CAMPUSQUEST. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Login/Register Modal -->
+    <div id="authModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-lg p-6 w-full max-w-md">
+            <div class="flex justify-between items-center mb-4">
+                <h2 id="modalTitle" class="text-xl font-bold">Login</h2>
+                <button onclick="closeModal()" class="text-gray-500 hover:text-gray-700">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+
+            <form id="authForm">
+                <div class="mb-4">
+                    <label for="name" class="block text-gray-700 mb-1">Full Name</label>
+                    <input type="text" id="name"
+                        class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:border-purple-500">
+                </div>
+
+                <div class="mb-4">
+                    <label for="phone" class="block text-gray-700 mb-1">Phone Number</label>
+                    <input type="tel" id="phone"
+                        class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:border-purple-500">
+                </div>
+
+                <div id="clubFields" class="hidden">
+                    <div class="mb-4">
+                        <label for="clubName" class="block text-gray-700 mb-1">Club Name</label>
+                        <input type="text" id="clubName"
+                            class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:border-purple-500">
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="clubDescription" class="block text-gray-700 mb-1">Club Description</label>
+                        <textarea id="clubDescription" rows="3"
+                            class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:border-purple-500"></textarea>
+                    </div>
+                </div>
+
+                <div class="flex items-center mb-4">
+                    <input type="checkbox" id="isClubAdmin" class="mr-2">
+                    <label for="isClubAdmin" class="text-gray-700">I am a club administrator</label>
+                </div>
+
+                <button type="submit"
+                    class="w-full bg-purple-600 text-white py-2 rounded font-medium hover:bg-purple-700">Submit</button>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
