@@ -310,5 +310,135 @@
         </div>
     </div>
 </body>
+<script>
+    // JavaScript for clubs.html
+
+    document.addEventListener('DOMContentLoaded', function () {
+        // Toggle for interest button
+        function markInterested(button) {
+            const arrowIcon = button.querySelector('i');
+            const interestCount = button.querySelector('.interest-count');
+            const currentCount = parseInt(interestCount.textContent.replace(/[()]/g, ''));
+
+            // Toggle interest state
+            if (arrowIcon.classList.contains('far')) {
+                arrowIcon.classList.remove('far');
+                arrowIcon.classList.add('fas', 'text-blue-500');
+                interestCount.textContent = `(${currentCount + 1})`;
+                arrowIcon.classList.add('interest-animation');
+                setTimeout(() => {
+                    arrowIcon.classList.remove('interest-animation');
+                }, 500);
+            } else {
+                arrowIcon.classList.remove('fas', 'text-blue-500');
+                arrowIcon.classList.add('far');
+                interestCount.textContent = `(${currentCount - 1})`;
+            }
+        }
+
+        // Auth modal functionality
+        const authModal = document.getElementById('authModal');
+        const modalTitle = document.getElementById('modalTitle');
+        const loginBtn = document.getElementById('loginBtn');
+        const registerBtn = document.getElementById('registerBtn');
+        const logoutBtn = document.getElementById('logoutBtn');
+        const userNameDisplay = document.getElementById('userName');
+        const isClubAdmin = document.getElementById('isClubAdmin');
+        const clubFields = document.getElementById('clubFields');
+
+        // Mobile menu functionality
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        // Add click event for mobile menu toggle
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', function () {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+
+        if (loginBtn) {
+            loginBtn.addEventListener('click', () => {
+                modalTitle.textContent = 'Login';
+                authModal.classList.remove('hidden');
+            });
+        }
+
+        if (registerBtn) {
+            registerBtn.addEventListener('click', () => {
+                modalTitle.textContent = 'Register';
+                authModal.classList.remove('hidden');
+            });
+        }
+
+        // Close modal function
+        window.closeModal = function () {
+            authModal.classList.add('hidden');
+        };
+
+        // Toggle club admin fields
+        if (isClubAdmin) {
+            isClubAdmin.addEventListener('change', function () {
+                if (this.checked) {
+                    clubFields.classList.remove('hidden');
+                } else {
+                    clubFields.classList.add('hidden');
+                }
+            });
+        }
+
+        // Form submission (mock)
+        const authForm = document.getElementById('authForm');
+        if (authForm) {
+            authForm.addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                // Mock authentication
+                const name = document.getElementById('name').value;
+                if (name) {
+                    if (userNameDisplay) {
+                        userNameDisplay.textContent = name;
+                    }
+
+                    if (loginBtn) loginBtn.classList.add('hidden');
+                    if (registerBtn) registerBtn.classList.add('hidden');
+                    if (logoutBtn) logoutBtn.classList.remove('hidden');
+
+                    closeModal();
+
+                    // If club admin, would store that info in local storage or cookies
+                    if (isClubAdmin && isClubAdmin.checked) {
+                        // In a real app, would send this to server
+                        console.log('Club admin logged in:', {
+                            name: name,
+                            phone: document.getElementById('phone').value,
+                            clubName: document.getElementById('clubName').value,
+                            clubDescription: document.getElementById('clubDescription').value
+                        });
+                    }
+                }
+            });
+        }
+
+        if (logoutBtn) {
+            logoutBtn.addEventListener('click', function (e) {
+                e.preventDefault();
+                if (userNameDisplay) {
+                    userNameDisplay.textContent = 'Guest';
+                }
+                if (loginBtn) loginBtn.classList.remove('hidden');
+                if (registerBtn) registerBtn.classList.remove('hidden');
+                logoutBtn.classList.add('hidden');
+            });
+        }
+    });
+
+    // Make closeModal function available globally
+    if (typeof closeModal === 'undefined') {
+        window.closeModal = function () {
+            document.getElementById('authModal').classList.add('hidden');
+        };
+    }
+</script>
 
 </html>
